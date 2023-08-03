@@ -12,7 +12,7 @@ pipeline {
     stages {
         stage('vcs') {
             steps {
-                git url: 'https://github.com/dummyrepos99/spring-petclinic.git',
+                git url: 'https://github.com/dummyrepos/spring-petclinic-1.git,
                 git branch: 'develop'
             }
         }
@@ -23,7 +23,7 @@ pipeline {
         }
         stage('reporting') {
             steps {
-                archiveArtifacts artifacts: '**/target/spring-petclinic-*.jar'
+                archiveArtifacts artifacts: '**/target/spring-petclinic-1-*.jar'
                 junit testResults: '**/target/surefire-reports/TEST-*.xml'
             }
         }
